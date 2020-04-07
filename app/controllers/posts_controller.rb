@@ -13,6 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params.require(:post).permit(:title, :description))
+    # Try to save new post & display success message, else show error
     if @post.save
       flash[:notice] = "Post created successfully."
       redirect_to @post
