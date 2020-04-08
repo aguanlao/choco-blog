@@ -1,1 +1,34 @@
 @import 'bootstrap/dist/css/bootstrap';
+
+body {
+  background-color: #372214;
+  color: #b8733a;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.bg-main {
+  background-color: #372214;
+}
+
+.bg-alt {
+  background-color: #794228;
+}
+
+.bg-aux {
+  background-color: #b8733a;
+}
+
+.bg-supp {
+  background-color: #34302c;
+}
+
+.bg-trim {
+  background-color: #bec2cb;
+}
+
+.nav-link-color {
+  color: #b8733a;
+}
