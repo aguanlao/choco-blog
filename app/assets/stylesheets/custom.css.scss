@@ -29,6 +29,23 @@ body {
   background-color: #bec2cb;
 }
 
-.nav-link-color {
+.navbar-dark .nav-item.active .nav-link,
+.navbar-dark .nav-item:focus .nav-link {
+  color: red;
+}
+
+.navbar-dark .navbar-brand {
+  color: #bec2cb;
+}
+
+.navbar-dark .navbar-brand:hover {
+  color: #b8733a;
+}
+
+.navbar-dark .nav-item .nav-link {
+  color: #bec2cb;
+}
+
+.navbar-dark .nav-item:hover .nav-link {
   color: #b8733a;
 }
