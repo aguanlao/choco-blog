@@ -41,7 +41,7 @@
               <span class="btn btn-secondary"><%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Confirm deleting this post?" } %></span>
             </div>
             <div class="card-footer text-muted text-right">
-              <%= post.created_at %>
+              Posted <%= distance_of_time_in_words_to_now(post.created_at) %> ago
             </div>
           </div>
         </div>
