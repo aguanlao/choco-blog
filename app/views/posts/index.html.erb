@@ -1,5 +1,4 @@
 <div class="container">
-  <h1 class="mt-4">All Posts</h1>
 
   <%# <div class="container">
     <!-- Card Start -->
@@ -54,34 +53,42 @@
   </div> %>
 
 
-  <div class="container">
-    <!-- Posts list -->
-    <% @posts.each do |post| %>
-        <div class="card shadow p-0 mt-4">
-          <div class="row no-gutters">
-            <div class="col-4 align-self-center">
-              <img src="https://loremflickr.com/360/480" class="rounded img-fluid" alt="...">
-            </div>
-            <div class="col">
-                <div class="card-body">
-                  <h3 class="card-title"> <%= post.title %> </h3>
-                  <p class="card-text"> <%= post.description %> </p>
-                </div>
-                <div class="card-body text-right">
-                  <span class="btn btn-secondary"><%= link_to 'View', post_path(post) %></span>
-                  <span class="btn btn-secondary"><%= link_to 'Edit', edit_post_path(post) %></span>
-                  <span class="btn btn-secondary"><%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Confirm deleting this post?" } %></span>
-                </div>
-                <div class="card-footer text-muted text-right">
-                  Posted <%= distance_of_time_in_words_to_now(post.created_at) %> ago
-                </div>
-            </div>
-          </div>
+  <div class="row justify-content-between">
+    <div class="col-4">    
+      <h1 class="mt-4">All Posts</h1>
+    </div>
+    <div class="col-4 text-right">
+      <%= link_to 'Create new post', new_post_path, class: "btn btn-outline-light btn-lg mt-4" %>
+    </div>
+  </div>
 
-        </div>
-    <% end %>
-  
-    <p class="btn btn-success mt-4"> <%= link_to 'Create new post', new_post_path %> </p>
-  
+  <div class="row">
+    <div class="col">
+      <!-- Posts list -->
+      <% @posts.each do |post| %>
+          <div class="card shadow p-0 mt-4">
+            <div class="row no-gutters">
+              <div class="col-4 align-self-center">
+                <img src="https://loremflickr.com/360/480" class="rounded img-fluid" alt="...">
+              </div>
+              <div class="col">
+                  <div class="card-body">
+                    <h3 class="card-title"> <%= post.title %> </h3>
+                    <p class="card-text"> <%= post.description %> </p>
+                  </div>
+                  <div class="card-body text-right">
+                    <%= link_to 'View', post_path(post), class: "btn btn-secondary" %>
+                    <%= link_to 'Edit', edit_post_path(post), class: "btn btn-secondary" %>
+                    <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
+                  </div>
+                  <div class="card-footer text-muted text-right">
+                    Posted <%= distance_of_time_in_words_to_now(post.created_at) %> ago
+                  </div>
+              </div>
+            </div>
+
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
