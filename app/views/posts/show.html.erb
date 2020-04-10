@@ -35,7 +35,7 @@
       
         <!-- Card body start -->
         <div class="card-body">
-          <p class="card-text"> <%= simple_format(@post.description) %> </p>
+          <div class="card-text"> <%= simple_format(@post.description) %> </div>
         </div>
         <div class="card-body text-right">
           <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary" %>

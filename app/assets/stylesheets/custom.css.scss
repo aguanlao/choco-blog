@@ -1,8 +1,13 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-body {
+html, body {
   background-color: #372214;
   color: #b8733a;
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
 }
 
 .active {
