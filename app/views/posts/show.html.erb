@@ -42,23 +42,15 @@
           <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
         </div>
         <div class="card-footer text-muted text-right">
-          <%= @post.created_at.strftime("Posted on %m/%d/%Y at %I:%M %p") %>
+          <% if @post.created_at == @post.updated_at %>
+            <%= @post.created_at.strftime("Posted on %m/%d/%Y at %I:%M %p") %>
+          <% else %>
+            <%= @post.created_at.strftime("Posted on %m/%d/%Y at %I:%M %p, ") %>
+            <%= @post.updated_at.strftime("Updated on %m/%d/%Y") %>
+          <% end %>
         </div>
         <!-- End of card body -->
       </div>
     </div>
   </div>
 </div>
-
-<!--
-<h1>Showing post detail</h1>
-
-<p><strong>Title: </strong> <%= @post.title %> </p>
-<p><strong>Description: </strong> <%= @post.description %> </p>
-<p><%= @post.created_at.strftime("Posted on %m/%d/%Y at %I:%M %p") %></p>
-<p>
-  <%= link_to 'Back to index', posts_path %> |
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <td> <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Confirm deleting this post?" } %> </td>  
-</p>
--->
