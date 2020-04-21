@@ -14,6 +14,8 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    # TODO: Remove hardcoded user for posts
+    @post.user = User.first
     # Try to save new post & display success message, else show error
     if @post.save
       flash[:notice] = "Post created successfully."
