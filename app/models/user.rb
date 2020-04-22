@@ -5,8 +5,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :posts
   validates :username, uniqueness: { case_sensitive: false }, 
-    presence: true, length: {minimum: 6, maximum: 25}
+    presence: true, length: { minimum: 6, maximum: 25 }
   validates :email, uniqueness: { case_sensitive: false }, 
-    presence: true, length: {maximum: 128}, 
+    presence: true, length: { maximum: 128 }, 
     format: { with: VALID_EMAIL_REGEX }
 end
