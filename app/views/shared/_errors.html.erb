@@ -3,7 +3,7 @@
     <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
       <% if obj.class.name == "Post" %>
         <h3 class="alert-heading">Failed to post</h3>
-      <% elsif obj.class.name == "User" %>
+      <% elsif obj.class.name == "User" && obj.new_record? %>
         <h3 class="alert-heading">Failed to create account</h3>
       <% else %>
         <h3 class="alert-heading">An error occurred</h3>
