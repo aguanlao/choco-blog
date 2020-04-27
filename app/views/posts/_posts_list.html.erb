@@ -1,12 +1,19 @@
 <!-- Posts list -->
 <% obj.each do |post| %>
-    <div class="card shadow p-0 mt-4">
+    <div class="card card-shadow p-0 mb-5">
       <div class="row no-gutters">
-        <div class="col-2 align-self-center">
-          <img src="https://loremflickr.com/360/480" class="rounded img-fluid" alt="...">
+        <div class="col-4 align-self-center m-4">
+          <img src="https://loremflickr.com/360/360" class="rounded img-fluid" alt="...">
         </div>
         <div class="col d-flex flex-column">
             <div class="card-body">
+              <span>
+                <svg class="bi bi-clock" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm8-7A8 8 0 110 8a8 8 0 0116 0z" clip-rule="evenodd"/>
+                  <path fill-rule="evenodd" d="M7.5 3a.5.5 0 01.5.5v5.21l3.248 1.856a.5.5 0 01-.496.868l-3.5-2A.5.5 0 017 9V3.5a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+                </svg>
+                <%= distance_of_time_in_words_to_now(post.created_at) %> ago
+              </span>
               <h3 class="card-title"> <%= link_to post.title, post_path(post), class: "link"%> </h3>
               <p class="card-text"> <%= truncate(post.description, length: 256, separator: " ") %> </p>
             </div>
@@ -14,9 +21,6 @@
               <%= link_to 'View', post_path(post), class: "btn btn-secondary" %>
               <%= link_to 'Edit', edit_post_path(post), class: "btn btn-secondary" %>
               <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
-            </div>
-            <div class="card-footer text-muted text-right">
-              Posted <%= distance_of_time_in_words_to_now(post.created_at) %> ago
             </div>
         </div>
       </div>

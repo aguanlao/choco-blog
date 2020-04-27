@@ -1,8 +1,8 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 html, body {
-  background-color: #372214;
-  color: #b8733a;
+  background-color: #e2dacf;
+  color: #120f0f;
   height: 100%;
 }
 
@@ -15,23 +15,28 @@ html, body {
 }
 
 .bg-main {
-  background-color: #372214;
+  // background-color: #372214;
+  background-color: #f1f1f9;
 }
 
 .bg-alt {
-  background-color: #794228;
+  // background-color: #794228;
+  background-color: #e2dacf;
 }
 
 .bg-aux {
-  background-color: #b8733a;
+  // background-color: #b8733a;
+  background-color: #c5b19d;
 }
 
 .bg-supp {
-  background-color: #34302c;
+  // background-color: #34302c;
+  background-color: #120f0f;
 }
 
 .bg-trim {
-  background-color: #bec2cb;
+  // background-color: #bec2cb;
+  background-color: #6b656e;
 }
 
 .navbar-dark .nav-item.active .nav-link,
@@ -40,19 +45,19 @@ html, body {
 }
 
 .navbar-dark .navbar-brand {
-  color: #bec2cb;
+  color: #120f0f;
 }
 
 .navbar-dark .navbar-brand:hover {
-  color: #b8733a;
+  color: #c5b19d;
 }
 
 .navbar-dark .nav-item .nav-link {
-  color: #bec2cb;
+  color: #120f0f;
 }
 
 .navbar-dark .nav-item:hover .nav-link {
-  color: #b8733a;
+  color: #c5b19d;
 }
 
 #post-carousel {
@@ -69,6 +74,10 @@ html, body {
 
 .with-error {
   border-color: red;
+}
+
+.card-shadow {
+  box-shadow: 15px 15px #c5b19d;
 }
 
 // .card-block {
