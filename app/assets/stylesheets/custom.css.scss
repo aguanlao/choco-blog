@@ -49,7 +49,7 @@ html, body {
 }
 
 .navbar-dark .navbar-brand:hover {
-  color: #c5b19d;
+  color: #6b656e;
 }
 
 .navbar-dark .nav-item .nav-link {
@@ -57,7 +57,7 @@ html, body {
 }
 
 .navbar-dark .nav-item:hover .nav-link {
-  color: #c5b19d;
+  color: #6b656e;
 }
 
 #post-carousel {
@@ -78,6 +78,10 @@ html, body {
 
 .card-shadow {
   box-shadow: 15px 15px #c5b19d;
+}
+
+li.nav-item {
+  margin: 0px 50px;
 }
 
 // .card-block {
