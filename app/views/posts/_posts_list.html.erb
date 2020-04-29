@@ -3,7 +3,9 @@
     <div class="card card-shadow p-0 mb-5">
       <div class="row no-gutters">
         <div class="col-4 align-self-center m-4">
-          <img src="https://loremflickr.com/360/360" class="rounded img-fluid" alt="...">
+          <%# TODO: Remove generation of placeholder image with size %>
+          <% size = rand(240..1080) %>
+          <img src=<%= "https://loremflickr.com/#{size}/#{size} "%> class="rounded img-fluid" alt="...">
         </div>
         <div class="col d-flex flex-column">
             <div class="card-body">
