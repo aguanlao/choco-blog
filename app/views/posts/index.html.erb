@@ -61,9 +61,15 @@
       <%= link_to 'Create new post', new_post_path, class: "btn btn-outline-dark btn-lg" %>
     </div>
   </div>
+  <% posts = @posts.to_a %>
+  <% if posts.length > 3 %>
+    <% featured_posts = posts.shift(3) %>
+    <%= render 'posts_featured', obj: featured_posts %>
+  <% end %>
   <div class="row justify-content-center">
     <div class="col-11">
-      <%= render 'posts_list', obj: @posts %>
+      <h1>Recent posts</h1>
+      <%= render 'posts_list', obj: posts %>
     </div>
   </div>
 </div>
