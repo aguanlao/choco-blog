@@ -106,6 +106,7 @@ li.nav-item {
 
 .bg-overlay {
   background-color: rgba($color: #000000, $alpha: 0.5);
+  overflow: hidden;
 }
 
 .bg-overlay:hover {
