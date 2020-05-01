@@ -27,8 +27,7 @@ class UsersController < ApplicationController
     # Try to update user & display proper feedback message
     if @user.update(user_params)
       flash[:notice] = "User was updated successfully."
-      # TODO: Change redirect on success
-      redirect_to posts_path
+      redirect_to user_path
     else
       render 'edit'
     end
