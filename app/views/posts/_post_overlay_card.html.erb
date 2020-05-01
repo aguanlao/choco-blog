@@ -9,6 +9,7 @@
         <path fill-rule="evenodd" d="M7.5 3a.5.5 0 01.5.5v5.21l3.248 1.856a.5.5 0 01-.496.868l-3.5-2A.5.5 0 017 9V3.5a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
       </svg>
       <%= distance_of_time_in_words_to_now(post.created_at) %> ago
+      by <%= post.user.username %>
     </span>
     <h5 class="card-title"><%= link_to post.title, post_path(post), class: "link stretched-link"%></h5>
     <p class="card-text"><%= truncate(post.description, length: 256, separator: " ") %></p>
