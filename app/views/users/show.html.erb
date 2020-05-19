@@ -96,15 +96,15 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
         <% if @user.posts.empty? %>
-          <div class="h4 text-center"><%= @user.username %> hasn't posted anything yet.</div>
+          <h4 class="text-center"><%= @user.username %> hasn't posted anything yet.</h4>
         <% else %>
           <%= paginate @user_posts %>
           <%= render 'posts/posts_list', obj: @user_posts %>
           <%= paginate @user_posts %>
         <% end %>
       </div>
-      <div class="tab-pane fade text-center mt-2" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
-        <span><%= @user.username %>'s profile is private</span>
+      <div class="tab-pane fade mt-2" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
+        <h4 class="text-center"><%= @user.username %>'s profile is private</h4>
       </div>
     </div>
   </div>
