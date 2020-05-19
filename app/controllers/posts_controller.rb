@@ -10,7 +10,7 @@ class PostsController < ApplicationController
         per(3).padding(3)
       @featured_posts = Post.order(created_at: :desc).first(3)
     else      
-      @posts = Post.order(created_at: :desc)
+      @posts = Post.order(created_at: :desc).page(params[:page]).per(3)
     end
   end
 
