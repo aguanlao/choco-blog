@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update]
 
   def show
+    @user_posts = @user.posts.reverse_order.page(params[:page]).
+      per(5)
   end
 
   def new

@@ -98,7 +98,9 @@
         <% if @user.posts.empty? %>
           <div class="h4 text-center"><%= @user.username %> hasn't posted anything yet.</div>
         <% else %>
-          <%= render 'posts/posts_list', obj: @user.posts.reverse_order %>
+          <%= paginate @user_posts %>
+          <%= render 'posts/posts_list', obj: @user_posts %>
+          <%= paginate @user_posts %>
         <% end %>
       </div>
       <div class="tab-pane fade text-center mt-2" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
