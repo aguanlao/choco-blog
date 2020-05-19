@@ -2,12 +2,12 @@
 
 @font-face {
   font-family: Roboto;
-  src: url(Roboto-Regular.ttf) format("truetype");
+  src: font-url("Roboto-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: Sanchez;
-  src: url(Sanchez-Regular.ttf) format("truetype");
+  src: font-url("Sanchez-Regular.ttf") format("truetype");
 }
 
 html, body {
