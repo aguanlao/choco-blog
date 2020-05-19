@@ -113,6 +113,20 @@ h1, h2, h3, h4, h5, h6, a, span {
   background-color: rgba($color: #000000, $alpha: 0.25);
 }
 
+.profile-nav .nav-item .nav-link.active, 
+.profile-nav .nav-item .nav-link.active:hover {
+  color: #fff;
+  background-color: #6b656e;  
+}
+
+.profile-nav .nav-item .nav-link {
+  color: #6b656e;
+}
+
+.profile-nav .nav-item .nav-link:hover {
+  color: #120f0f;
+}
+
 // .card-block {
 //   font-size: 1em;
 //   position: relative;

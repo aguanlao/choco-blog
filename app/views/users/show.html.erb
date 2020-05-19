@@ -47,7 +47,7 @@
           Facebook
         </span>
         <span class="float-right text-muted">
-          <a href="#">David Grey</a>
+          <a href="#" class="link">David Grey</a>
         </span>
       </p>
       <p class="clearfix">
@@ -55,7 +55,7 @@
           Twitter
         </span>
         <span class="float-right text-muted">
-          <a href="#">@davidgrey</a>
+          <a href="#" class="link">@davidgrey</a>
         </span>
       </p>            
     </div>
@@ -77,7 +77,7 @@
   <%# Start profile body %>
   <div class="col-lg-8">
     <div class="mb-2 py-2 border-top border-bottom border-dark">
-      <ul class="nav nav-pills" id="pills-tab" role="tablist">
+      <ul class="profile-nav nav nav-pills" id="pills-tab" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" id="pills-posts-tab" data-toggle="pill" href="#pills-posts" role="tab" aria-controls="pills-posts" aria-selected="true">
             <i class="mdi mdi-newspaper"></i>
@@ -98,11 +98,11 @@
         <% if @user.posts.empty? %>
           <div class="h4 text-center"><%= @user.username %> hasn't posted anything yet.</div>
         <% else %>
-          <%= render 'posts/posts_list', obj: @user.posts %>
+          <%= render 'posts/posts_list', obj: @user.posts.reverse_order %>
         <% end %>
       </div>
-      <div class="tab-pane fade text-center" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
-        User's profile is private
+      <div class="tab-pane fade text-center mt-2" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
+        <span><%= @user.username %>'s profile is private</span>
       </div>
     </div>
   </div>
