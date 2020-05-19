@@ -1,0 +1,112 @@
+<% content_for :head do %>
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+<% end %>
+
+<div class="row mt-4 px-0">
+  <%# Start contact info panel %>
+  <div class="col-lg-4">
+    <div class="border-bottom border-dark text-center pb-4">
+      <%# TODO: Replace placeholder image with avatar img %>
+      <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="profile" class="img-lg rounded-circle mb-3">
+      <div class="mb-3">
+        <h3><%= @user.username %></h3>
+      </div>
+      <p class="w-75 mx-auto mb-3">Bureau Oberhaeuser is a design bureau focused on Information- and Interface Design. </p>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-outline-dark btn-lg mr-1">Message</button>
+        <%= link_to 'Edit Profile', edit_user_path, class: "btn btn-outline-dark btn-lg" %>
+      </div>
+    </div>
+    <div class="border-bottom border-dark py-4">
+      <p class="clearfix">
+        <span class="float-left">
+          Status
+        </span>
+        <span class="float-right text-muted">
+          Active
+        </span>
+      </p>
+      <p class="clearfix">
+        <span class="float-left">
+          Phone
+        </span>
+        <span class="float-right text-muted">
+          006 3435 22
+        </span>
+      </p>
+      <p class="clearfix">
+        <span class="float-left">
+          Mail
+        </span>
+        <span class="float-right text-muted">
+          test@email.com
+        </span>
+      </p>
+      <p class="clearfix">
+        <span class="float-left">
+          Facebook
+        </span>
+        <span class="float-right text-muted">
+          <a href="#" class="link">David Grey</a>
+        </span>
+      </p>
+      <p class="clearfix">
+        <span class="float-left">
+          Twitter
+        </span>
+        <span class="float-right text-muted">
+          <a href="#" class="link">@davidgrey</a>
+        </span>
+      </p>            
+    </div>
+    <div class="py-4">
+      <p>Tags</p>
+      <%# TODO: Get user tags/badges %>
+      <div>
+        <label class="badge badge-outline-dark">Madagascar</label>
+        <label class="badge badge-outline-dark">Ecuador</label>
+        <label class="badge badge-outline-dark">Vietnam</label>
+        <label class="badge badge-outline-dark">Fiji</label>
+        <label class="badge badge-outline-dark">Colombia</label>  
+      </div>
+    </div>
+    <button class="btn btn-outline-dark btn-lg btn-block mb-2">Preview</button>
+  </div>
+  <%# End contact info panel %>
+
+  <%# Start profile body %>
+  <div class="col-lg-8">
+    <div class="mb-2 py-2 border-top border-bottom border-dark">
+      <ul class="profile-nav nav nav-pills" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-posts-tab" data-toggle="pill" href="#pills-posts" role="tab" aria-controls="pills-posts" aria-selected="true">
+            <i class="mdi mdi-newspaper"></i>
+            Posts
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-info-tab" data-toggle="pill" href="#pills-info" role="tab" aria-controls="pills-info" aria-selected="false">
+            <i class="mdi mdi-account-outline"></i>
+            Info
+          </a>
+        </li>        
+      </ul>
+    </div>
+
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
+        <% if @user.posts.empty? %>
+          <h4 class="text-center"><%= @user.username %> hasn't posted anything yet.</h4>
+        <% else %>
+          <%= paginate @user_posts %>
+          <%= render 'posts/posts_list', obj: @user_posts %>
+          <%= paginate @user_posts %>
+        <% end %>
+      </div>
+      <div class="tab-pane fade mt-2" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
+        <h4 class="text-center"><%= @user.username %>'s profile is private</h4>
+      </div>
+    </div>
+  </div>
+  <%# End profile body %>
+</div>

@@ -1,9 +1,24 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+@font-face {
+  font-family: Roboto;
+  src: url(Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Sanchez;
+  src: url(Sanchez-Regular.ttf) format("truetype");
+}
+
 html, body {
-  background-color: #372214;
-  color: #b8733a;
+  background-color: #e2dacf;
+  font-family: 'Roboto', sans-serif;
+  color: #120f0f;
   height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, a, span {
+  font-family: 'Sanchez', serif;
 }
 
 #page-content {
@@ -15,23 +30,28 @@ html, body {
 }
 
 .bg-main {
-  background-color: #372214;
+  // background-color: #372214;
+  background-color: #f1f1f9;
 }
 
 .bg-alt {
-  background-color: #794228;
+  // background-color: #794228;
+  background-color: #e2dacf;
 }
 
 .bg-aux {
-  background-color: #b8733a;
+  // background-color: #b8733a;
+  background-color: #c5b19d;
 }
 
 .bg-supp {
-  background-color: #34302c;
+  // background-color: #34302c;
+  background-color: #120f0f;
 }
 
 .bg-trim {
-  background-color: #bec2cb;
+  // background-color: #bec2cb;
+  background-color: #6b656e;
 }
 
 .navbar-dark .nav-item.active .nav-link,
@@ -40,19 +60,19 @@ html, body {
 }
 
 .navbar-dark .navbar-brand {
-  color: #bec2cb;
+  color: #120f0f;
 }
 
 .navbar-dark .navbar-brand:hover {
-  color: #b8733a;
+  color: #6b656e;
 }
 
 .navbar-dark .nav-item .nav-link {
-  color: #bec2cb;
+  color: #120f0f;
 }
 
 .navbar-dark .nav-item:hover .nav-link {
-  color: #b8733a;
+  color: #6b656e;
 }
 
 #post-carousel {
@@ -69,6 +89,42 @@ html, body {
 
 .with-error {
   border-color: red;
+}
+
+.card-shadow {
+  box-shadow: 15px 15px #c5b19d;
+}
+
+.navbar-nav li.nav-item {
+  margin: 0px 50px;
+  font-family: 'Sanchez', serif;
+}
+
+.min-w {
+  min-width: 40rem;
+}
+
+.bg-overlay {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  overflow: hidden;
+}
+
+.bg-overlay:hover {
+  background-color: rgba($color: #000000, $alpha: 0.25);
+}
+
+.profile-nav .nav-item .nav-link.active, 
+.profile-nav .nav-item .nav-link.active:hover {
+  color: #fff;
+  background-color: #6b656e;  
+}
+
+.profile-nav .nav-item .nav-link {
+  color: #6b656e;
+}
+
+.profile-nav .nav-item .nav-link:hover {
+  color: #120f0f;
 }
 
 // .card-block {

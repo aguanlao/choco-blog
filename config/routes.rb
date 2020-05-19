@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :posts
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
-  resources :users, except: [:new, :create]
+  resources :users, except: [:new, :create, :index]
 end
