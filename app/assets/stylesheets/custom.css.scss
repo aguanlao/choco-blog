@@ -127,9 +127,18 @@ h1, h2, h3, h4, h5, h6, a, span {
   color: #120f0f;
 }
 
-.btn-outline-dark {
+.btn-outline-dark, .btn-outline-dark.navbar-toggler {
   color: #120f0f;
   border-color: #120f0f;
+}
+
+.btn-outline-dark.navbar-toggler:hover {
+  color: #fff;
+}
+
+.navbar-toggler, .navbar-toggler:focus {
+  font-size: 1.73em;
+  outline: transparent;
 }
 
 .session {
