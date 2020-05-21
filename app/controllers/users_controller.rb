@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # Try to save new user & display success message, else show error
     if @user.save
+      session[:user_id] = @user.id
       flash[:notice] = "Signed up successfully. Welcome #{@user.username}!"
       # TODO: Change redirect on success
       redirect_to posts_path
