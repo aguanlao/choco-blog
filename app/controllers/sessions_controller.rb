@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Logged in successfully"
       redirect_to user
     else
-      flash.now[:alert] = "Incorrect credentials"
+      flash.now[:error] = "Incorrect username and/or password"
       render 'new'      
     end
   end
