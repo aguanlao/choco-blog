@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    redirect_to user_path(session[:user_id]) if session[:user_id]
+    redirect_to user_path(session[:user_id]) if logged_in?
   end
 
   def create
