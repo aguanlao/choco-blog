@@ -59,21 +59,23 @@ h1, h2, h3, h4, h5, h6, a, span {
   color: red;
 }
 
+.navbar-dark .nav-item .nav-link,
+.navbar-dark .nav-link, 
 .navbar-dark .navbar-brand {
   color: #120f0f;
 }
 
+.navbar-dark .nav-item:hover .nav-link, 
+.navbar-dark .nav-link:hover,
+.navbar-dark .nav-item:hover,
 .navbar-dark .navbar-brand:hover {
   color: #6b656e;
 }
 
-.navbar-dark .nav-item .nav-link {
-  color: #120f0f;
-}
-
-.navbar-dark .nav-item:hover .nav-link, 
-.navbar-dark .nav-item:hover {
-  color: #6b656e;
+.dropdown-item:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #6b656e;
 }
 
 #post-carousel {
@@ -96,7 +98,7 @@ h1, h2, h3, h4, h5, h6, a, span {
   box-shadow: 15px 15px #c5b19d;
 }
 
-.navbar-nav li.nav-item {
+.navbar-nav .nav-item {
   margin: 0px 50px;
   font-family: 'Sanchez', serif;
 }
