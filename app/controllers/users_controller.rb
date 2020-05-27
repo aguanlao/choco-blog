@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
   def show
     @user_posts = @user.posts.reverse_order.page(params[:page]).
@@ -45,5 +47,11 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
-
+  
+  def require_same_user
+    if current_user != @user
+      flash[:alert] = "You do not have permission to do that."
+      redirect_to @user
+    end
+  end
 end
