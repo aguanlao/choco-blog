@@ -28,15 +28,18 @@
             </a>
 
             <%# Post popover content %>
+            <%# TODO: Add social media sharing %>
             <%= content_tag :div, class: "d-none popover-content", id: "popover-#{post.id}" do %>
               <%= link_to post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
                 <%= content_tag :i, "", class: "mdi mdi-eye" %>
               <% end %>
-              <%= link_to edit_post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
-                <%= content_tag :i, "", class: "mdi mdi-pencil" %>
-              <% end %>
-              <%= link_to post_path(post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary btn-sm rounded-circle" do %>
-                <%= content_tag :i, "", class: "mdi mdi-trash-can" %>
+              <% if logged_in? && post.user == current_user %>
+                <%= link_to edit_post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
+                  <%= content_tag :i, "", class: "mdi mdi-pencil" %>
+                <% end %>
+                <%= link_to post_path(post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary btn-sm rounded-circle" do %>
+                  <%= content_tag :i, "", class: "mdi mdi-trash-can" %>
+                <% end %>
               <% end %>
             <% end %>
           </div>

@@ -38,8 +38,10 @@
         <div class="card-text"> <%= simple_format(@post.description) %> </div>
       </div>
       <div class="card-body text-right">
-        <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary" %>
-        <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
+        <% if logged_in? && @post.user == current_user %>
+          <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary" %>
+          <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
+        <% end %>
       </div>
       <%# TODO: Fix time posted for timezone %>
       <div class="card-footer text-muted text-right">

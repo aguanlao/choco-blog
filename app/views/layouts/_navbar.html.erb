@@ -21,7 +21,7 @@
     </ul>
   </div>
   <div class="session">
-    <% if session[:user_id] %>
+    <% if logged_in? %>
       <%= link_to current_user.username, user_path(current_user), class: "btn nav-item" %>
       <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-outline-dark" %>
     <% else %>
