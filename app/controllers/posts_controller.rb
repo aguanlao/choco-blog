@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :get_post, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_proper_user, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -57,5 +59,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :description)
+  end
+
+  def require_proper_user
+    if current_user != @post.user
+      flash[:alert] = "You do not have permission to do that."
+      redirect_to @post
+    end
   end
 end
