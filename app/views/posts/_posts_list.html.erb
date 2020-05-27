@@ -16,10 +16,10 @@
               </svg>
               <%= distance_of_time_in_words_to_now(post.created_at) %> ago
               <% if params[:controller] == "posts" %>
-                by <%= post.user.username %>
+                by <%= link_to post.user.username, user_path(post.user), class: "link" %>
               <% end %>
             </span>
-            <h3 class="card-title"> <%= link_to post.title, post_path(post), class: "link"%> </h3>
+            <h3 class="card-title"> <%= link_to post.title, post_path(post), class: "link" %> </h3>
             <p class="card-text"> <%= truncate(post.description, length: 256, separator: " ") %> </p>
           </div>
           <div class="text-right mr-2 mb-2">

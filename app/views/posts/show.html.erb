@@ -3,7 +3,8 @@
     <h1 class="mt-4"><%= @post.title %></h1>
     
     <div class="card shadow p-0 mt-4">
-      <!-- Carousel start -->
+      <%# Carousel %>
+      <%# TODO: Add uploaded images to carousel %>
       <div id="post-carousel" class="carousel slide">
         <ol class="carousel-indicators">
           <li data-target="#post-carousel" data-slide-to="0" class="active"></li>
@@ -30,9 +31,9 @@
           </a>
         </div>
       </div>
-      <!-- End of carousel -->
     
-      <!-- Card body start -->
+      <%# Card body %>
+      <%# TODO: Add link to post author's profile %>
       <div class="card-body">
         <div class="card-text"> <%= simple_format(@post.description) %> </div>
       </div>
@@ -40,6 +41,7 @@
         <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary" %>
         <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
       </div>
+      <%# TODO: Fix time posted for timezone %>
       <div class="card-footer text-muted text-right">
         <% if @post.created_at == @post.updated_at %>
           <%= @post.created_at.strftime("Posted on %m/%d/%Y at %I:%M %p") %>
@@ -48,7 +50,6 @@
           <%= @post.updated_at.strftime("Updated on %m/%d/%Y") %>
         <% end %>
       </div>
-      <!-- End of card body -->
     </div>
   </div>
 </div>
