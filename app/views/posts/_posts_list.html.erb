@@ -37,7 +37,12 @@
                 <%= link_to edit_post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
                   <%= content_tag :i, "", class: "mdi mdi-pencil" %>
                 <% end %>
-                <%= link_to post_path(post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary btn-sm rounded-circle" do %>
+                <% if params[:controller] == "users" %>
+                  <% delete_path = post_path(post) + "?user=true" %>
+                <% else %>
+                  <% delete_path = post_path(post) %>
+                <% end %>
+                <%= link_to delete_path, method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary btn-sm rounded-circle" do %>
                   <%= content_tag :i, "", class: "mdi mdi-trash-can" %>
                 <% end %>
               <% end %>
