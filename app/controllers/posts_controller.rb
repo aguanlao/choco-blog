@@ -64,7 +64,7 @@ class PostsController < ApplicationController
   def require_post_user
     if current_user != @post.user
       flash[:alert] = "You do not have permission to do that."
-      redirect_to @post
+      redirect_back fallback_location: @post
     end
   end
 end

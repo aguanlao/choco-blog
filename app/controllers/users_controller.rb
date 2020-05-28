@@ -18,8 +18,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Signed up successfully. Welcome #{@user.username}!"
-      # TODO: Change redirect on success
-      redirect_to posts_path
+      redirect_to @user
     else
       render 'new'
     end
@@ -32,7 +31,7 @@ class UsersController < ApplicationController
     # Try to update user & display proper feedback message
     if @user.update(user_params)
       flash[:notice] = "User was updated successfully."
-      redirect_to user_path
+      redirect_to @user
     else
       render 'edit'
     end
@@ -51,7 +50,7 @@ class UsersController < ApplicationController
   def require_same_user
     if current_user != @user
       flash[:alert] = "You do not have permission to do that."
-      redirect_to @user
+      redirect_back fallback_location: @user
     end
   end
 end
