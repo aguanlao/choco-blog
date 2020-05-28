@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    redirect_to user_path(session[:user_id]) if logged_in?
     @user = User.new
   end
 
