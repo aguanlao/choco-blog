@@ -3,7 +3,7 @@ class User < ApplicationRecord
   
   before_save { self.email = email.downcase }
   has_secure_password
-  has_many :posts
+  has_many :posts, dependent: :destroy
   validates :username, uniqueness: { case_sensitive: false }, 
     presence: true, length: { minimum: 6, maximum: 25 }
   validates :email, uniqueness: { case_sensitive: false }, 

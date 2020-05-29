@@ -44,4 +44,13 @@
       </div>  
     <% end %>
   </div>
+  <% unless @user.new_record? %>
+    <div class="col col-md-2  border-left border-dark">
+      <div class="card">
+        <div class="align-self-center p-2">
+          <%= link_to 'Delete account', user_path, method: :delete, data: { confirm: "Are you sure? Your account and all posts will be deleted. This is irreversible." }, class: "btn btn-danger" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
