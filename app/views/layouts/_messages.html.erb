@@ -4,8 +4,7 @@
     <div class="col-10">
       <% flash.each do |type, message| %>
         <% if ["alert", "notice"].include?(type) %>
-          <% alert_type = type == "alert" ? "alert-warning" : "alert-success" %> 
-          <div class="alert <%= alert_type %> alert-dismissable fade show">
+          <div class="alert alert-<%= type == "alert" ? "warning" : "success" %> alert-dismissable fade show">
             <%= message %>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>

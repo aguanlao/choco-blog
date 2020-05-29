@@ -1,54 +1,49 @@
 <%# Posts List %>
 <% obj.each do |post| %>
-    <div class="card card-shadow p-0 mb-5">
-      <div class="row no-gutters">
-        <div class="col-4 align-self-center m-4">
-          <%# TODO: Remove generation of placeholder image with size %>
-          <% size = rand(360..1080) %>
-          <img src=<%= "https://picsum.photos/#{size}/#{size}" %> class="rounded img-fluid" alt="...">
+  <div class="card card-shadow p-0 mb-5">
+    <div class="row no-gutters">
+      <div class="col-4 align-self-center m-4">
+        <%# TODO: Remove generation of placeholder image with size %>
+        <% size = rand(360..1080) %>
+        <img src=<%= "https://picsum.photos/#{size}/#{size}" %> class="rounded img-fluid" alt="...">
+      </div>
+      <div class="col d-flex flex-column">
+        <div class="card-body">
+          <span>
+            <svg class="bi bi-clock" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm8-7A8 8 0 110 8a8 8 0 0116 0z" clip-rule="evenodd"/>
+              <path fill-rule="evenodd" d="M7.5 3a.5.5 0 01.5.5v5.21l3.248 1.856a.5.5 0 01-.496.868l-3.5-2A.5.5 0 017 9V3.5a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
+            </svg>
+            <%= distance_of_time_in_words_to_now(post.created_at) %> ago
+            <% if params[:controller] == "posts" %>
+              by <%= link_to post.user.username, user_path(post.user), class: "link" %>
+            <% end %>
+          </span>
+          <h3 class="card-title"> <%= link_to post.title, post_path(post), class: "link" %> </h3>
+          <p class="card-text"> <%= truncate(post.description, length: 256, separator: " ") %> </p>
         </div>
-        <div class="col d-flex flex-column">
-          <div class="card-body">
-            <span>
-              <svg class="bi bi-clock" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm8-7A8 8 0 110 8a8 8 0 0116 0z" clip-rule="evenodd"/>
-                <path fill-rule="evenodd" d="M7.5 3a.5.5 0 01.5.5v5.21l3.248 1.856a.5.5 0 01-.496.868l-3.5-2A.5.5 0 017 9V3.5a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
-              </svg>
-              <%= distance_of_time_in_words_to_now(post.created_at) %> ago
-              <% if params[:controller] == "posts" %>
-                by <%= link_to post.user.username, user_path(post.user), class: "link" %>
-              <% end %>
-            </span>
-            <h3 class="card-title"> <%= link_to post.title, post_path(post), class: "link" %> </h3>
-            <p class="card-text"> <%= truncate(post.description, length: 256, separator: " ") %> </p>
-          </div>
-          <div class="text-right mr-2 mb-2">
-            <a tabindex="0" class="btn btn-secondary btn-sm rounded-circle" role="button" data-toggle="popover" data-trigger="focus" data-placement="top" data-source=<%= "popover-#{post.id}" %>>
-              <i class="mdi mdi-dots-horizontal text-white"></i>
-            </a>
+        <div class="text-right mr-2 mb-2">
+          <a tabindex="0" class="btn btn-secondary btn-sm rounded-circle" role="button" data-toggle="popover" data-trigger="focus" data-placement="top" data-source=<%= "popover-#{post.id}" %>>
+            <i class="mdi mdi-dots-horizontal text-white"></i>
+          </a>
 
-            <%# Post popover content %>
-            <%# TODO: Add social media sharing %>
-            <%= content_tag :div, class: "d-none popover-content", id: "popover-#{post.id}" do %>
-              <%= link_to post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
-                <%= content_tag :i, "", class: "mdi mdi-eye" %>
+          <%# Post popover content %>
+          <%# TODO: Add social media sharing %>
+          <%= content_tag :div, class: "d-none popover-content", id: "popover-#{post.id}" do %>
+            <%= link_to post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
+              <%= content_tag :i, "", class: "mdi mdi-eye" %>
+            <% end %>
+            <% if logged_in? && post.user == current_user %>
+              <%= link_to edit_post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
+                <%= content_tag :i, "", class: "mdi mdi-pencil" %>
               <% end %>
-              <% if logged_in? && post.user == current_user %>
-                <%= link_to edit_post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
-                  <%= content_tag :i, "", class: "mdi mdi-pencil" %>
-                <% end %>
-                <% if params[:controller] == "users" %>
-                  <% delete_path = post_path(post) + "?user=true" %>
-                <% else %>
-                  <% delete_path = post_path(post) %>
-                <% end %>
-                <%= link_to delete_path, method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary btn-sm rounded-circle" do %>
-                  <%= content_tag :i, "", class: "mdi mdi-trash-can" %>
-                <% end %>
+              <%= link_to post_path(post) + (params[:controller] == "users" ? "?user=true" : "" ), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary btn-sm rounded-circle" do %>
+                <%= content_tag :i, "", class: "mdi mdi-trash-can" %>
               <% end %>
             <% end %>
-          </div>
+          <% end %>
         </div>
       </div>
     </div>
+  </div>
 <% end %>
