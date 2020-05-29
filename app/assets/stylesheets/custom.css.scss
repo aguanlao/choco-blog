@@ -10,6 +10,27 @@
   src: font-url("Sanchez-Regular.ttf") format("truetype");
 }
 
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+
 html, body {
   background-color: #e2dacf;
   font-family: 'Roboto', sans-serif;
@@ -23,6 +44,10 @@ h1, h2, h3, h4, h5, h6, a, span {
 
 #page-content {
   flex: 1 0 auto;
+}
+
+#post-carousel {
+  background-color: #bec2cb;
 }
 
 .underline {
@@ -76,10 +101,6 @@ h1, h2, h3, h4, h5, h6, a, span {
   color: #fff;
   text-decoration: none;
   background-color: #6b656e;
-}
-
-#post-carousel {
-  background-color: #bec2cb;
 }
 
 .link {
@@ -148,6 +169,11 @@ h1, h2, h3, h4, h5, h6, a, span {
   position: absolute;
   right: 16px;
   top: 8px;
+}
+
+.slide-bottom {
+	-webkit-animation: slide-bottom 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-bottom 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 // .card-block {
