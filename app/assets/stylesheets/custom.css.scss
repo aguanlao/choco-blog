@@ -55,27 +55,22 @@ h1, h2, h3, h4, h5, h6, a, span {
 }
 
 .bg-main {
-  // background-color: #372214;
   background-color: #f1f1f9;
 }
 
 .bg-alt {
-  // background-color: #794228;
   background-color: #e2dacf;
 }
 
 .bg-aux {
-  // background-color: #b8733a;
   background-color: #c5b19d;
 }
 
 .bg-supp {
-  // background-color: #34302c;
   background-color: #120f0f;
 }
 
 .bg-trim {
-  // background-color: #bec2cb;
   background-color: #6b656e;
 }
 
@@ -176,13 +171,11 @@ h1, h2, h3, h4, h5, h6, a, span {
   animation: slide-bottom 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
-// .card-block {
-//   font-size: 1em;
-//   position: relative;
-//   margin: 0;
-//   padding: 1em;
-//   border: none;
-//   border-top: 1px solid rgba(34, 36, 38, .1);
-//   box-shadow: none;
-   
-// }
+.popover {
+  width: 3.5em;
+  text-align: center;
+}
+
+.popover-body {
+  padding: 0.5rem 0.25rem;
+}

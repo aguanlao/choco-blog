@@ -23,21 +23,28 @@
           <p class="card-text"> <%= truncate(post.description, length: 256, separator: " ") %> </p>
         </div>
         <div class="text-right mr-2 mb-2">
+          <%# TODO: Remove this block %>
+          <% if false %>
+            <button type="button" class="btn btn-secondary btn-sm rounded-circle" data-container="body" data-toggle="popover" data-placement="top" data-source=<%= "popover-#{post.id}" %>>
+              <i class="mdi mdi-dots-horizontal text-white"></i>
+            </button>
+          <% end %>
+          <%# Post actions popover toggler %>
           <a tabindex="0" class="btn btn-secondary btn-sm rounded-circle" role="button" data-toggle="popover" data-trigger="focus" data-placement="top" data-source=<%= "popover-#{post.id}" %>>
             <i class="mdi mdi-dots-horizontal text-white"></i>
           </a>
 
           <%# Post popover content %>
           <%# TODO: Add social media sharing %>
-          <%= content_tag :div, class: "d-none popover-content", id: "popover-#{post.id}" do %>
+          <%= content_tag :div, class: "d-none popover-content text-center", id: "popover-#{post.id}" do %>
             <%= link_to post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
               <%= content_tag :i, "", class: "mdi mdi-eye" %>
             <% end %>
             <% if logged_in? && post.user == current_user %>
-              <%= link_to edit_post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
+              <%= link_to edit_post_path(post), class: "btn btn-secondary btn-sm rounded-circle my-1" do %>
                 <%= content_tag :i, "", class: "mdi mdi-pencil" %>
               <% end %>
-              <%= link_to post_path(post) + (params[:controller] == "users" ? "?user=true" : "" ), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary btn-sm rounded-circle" do %>
+              <%= link_to post_path(post) + (params[:controller] == "users" ? "?user=true" : "" ), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-danger btn-sm rounded-circle" do %>
                 <%= content_tag :i, "", class: "mdi mdi-trash-can" %>
               <% end %>
             <% end %>
