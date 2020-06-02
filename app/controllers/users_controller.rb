@@ -48,7 +48,12 @@ class UsersController < ApplicationController
   private
 
   def get_user
-    @user = User.find(params[:id])
+    begin      
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "User not found."
+      redirect_to posts_path
+    end
   end
 
   def user_params
