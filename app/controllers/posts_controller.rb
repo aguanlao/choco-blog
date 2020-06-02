@@ -66,7 +66,7 @@ class PostsController < ApplicationController
   end
 
   def require_post_user
-    if current_user != @post.user
+    if current_user != @post.user && !current_user.is_admin?
       flash[:alert] = "You do not have permission to do that."
       redirect_back fallback_location: @post
     end

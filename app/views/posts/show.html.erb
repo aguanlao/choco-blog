@@ -38,7 +38,7 @@
         <div class="card-text"> <%= simple_format(@post.description) %> </div>
       </div>
       <div class="card-body text-right">
-        <% if logged_in? && @post.user == current_user %>
+        <% if logged_in? && (@post.user == current_user || current_user.is_admin?) %>
           <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary" %>
           <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
         <% end %>

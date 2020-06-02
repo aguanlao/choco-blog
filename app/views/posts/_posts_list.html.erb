@@ -40,7 +40,7 @@
             <%= link_to post_path(post), class: "btn btn-secondary btn-sm rounded-circle" do %>
               <%= content_tag :i, "", class: "mdi mdi-eye" %>
             <% end %>
-            <% if logged_in? && post.user == current_user %>
+            <% if logged_in? && (post.user == current_user || current_user.is_admin?) %>
               <%= link_to edit_post_path(post), class: "btn btn-secondary btn-sm rounded-circle my-1" do %>
                 <%= content_tag :i, "", class: "mdi mdi-pencil" %>
               <% end %>
