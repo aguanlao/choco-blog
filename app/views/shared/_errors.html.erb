@@ -1,6 +1,6 @@
 <%# Error display %>
 <% if obj.errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <% if obj.class.name == "Post" %>
       <h3 class="alert-heading">Failed to post</h3>
     <% elsif obj.class.name == "User" && obj.new_record? %>
