@@ -33,7 +33,7 @@ class CategoriesController < ApplicationController
       @category = Category.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       flash[:alert] = "Category not found."
-      redirect_to posts_path
+      redirect_to categories_path
     end
   end
 end
