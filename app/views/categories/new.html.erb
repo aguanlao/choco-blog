@@ -1,14 +1,14 @@
-<h1 class="text-center mt-4">Create Category</h1>
+<h1 class="text-center mt-2">Create Category</h1>
 
 <div class="row justify-content-center">
-  <div class="col-10">
+  <div class="col-6">
     <%= render 'shared/errors', obj: @category %>
     <%# Form %>
     <%= form_with(model: @category, url: categories_url, local: true) do |form| %>
-      <div class="form-group row mt-4">
-        <%= form.label :name, "Category name", class: "col-2 col-form-label" %>
-        <div class="col-10"> 
-          <%= form.text_field :name, class: "form-control shadow rounded #{ "with-error" unless @category.errors[:name].blank? }" %>
+      <div class="form-group row align-items-center mt-1">
+        <%= form.label :name, "Category name", class: "col col-form-label py-0" %>
+        <div class="col-lg-9 col-12"> 
+          <%= form.text_field :name, class: "form-control shadow rounded #{ "with-error" unless @category.errors[:name].blank? }", autocomplete: "off" %>
         </div>
       </div>
       

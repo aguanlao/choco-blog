@@ -1,13 +1,13 @@
-<% content_for :head do %>
-  <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
-<% end %>
+<h1 class="text-center mt-2">Categories</h1>
 
-<div class="row justify-content-between my-4">
-  <div class="col-4">    
-    <h1 class="">All Categories</h1>
-  </div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-11">
-  </div>
+<div class="row row-cols-1 row-cols-md-3 justify-content-center">
+  <% @categories.each do |category| %>
+    <div class="col mb-3">
+      <div class="card card-shadow justify-content-center h-100">
+        <div class="p-3 text-center">
+          <%= link_to category.name, category_path(category), class: "h3 link stretched-link" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
