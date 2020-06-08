@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :get_category, only: [:show]
+  before_action :require_admin, except: [:show, :index]
   
   def show
   end

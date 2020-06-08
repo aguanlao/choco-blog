@@ -19,4 +19,11 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  def require_admin
+    unless logged_in? && current_user.is_admin?
+      flash[:alert] = "You must be an administrator to do that."
+      redirect_to posts_path
+    end
+  end
 end
