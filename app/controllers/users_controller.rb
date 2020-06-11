@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # Try to save new user & display success message, else show error
+    # TODO: Add confirm password field and validate
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Signed up successfully. Welcome #{@user.username}!"

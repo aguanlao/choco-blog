@@ -17,13 +17,18 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    sign_in_as(@admin, "password")
+    sign_in_as(@admin)
     get new_category_url
     assert_response :success
   end
 
+  test "should not get new if not admin" do
+    get new_category_url
+    assert_redirected_to posts_url
+  end
+
   test "should create category as admin" do
-    sign_in_as(@admin, "password")
+    sign_in_as(@admin)
     assert_difference('Category.count', 1) do
       post categories_url, params: { category: { name: "Vietnam" } }
     end
