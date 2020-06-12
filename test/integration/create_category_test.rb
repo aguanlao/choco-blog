@@ -8,7 +8,7 @@ class CreateCategoryTest < ActionDispatch::IntegrationTest
       password: "password", 
       is_admin: true
     )
-    sign_in_as(@admin, "password")
+    sign_in_as(@admin)
   end
 
   test "get new category page and create category" do

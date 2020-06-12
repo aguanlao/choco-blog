@@ -1,1 +1,13 @@
-<h1 class="text-center mt-2"><%= @category.name %></h1>
+<% content_for :head do %>
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+<% end %>
+
+<%# TODO: Refactor to move posts_list partial to shared %>
+<h1 class="text-center mt-2">Category: <%= @category.name %></h1>
+<div class="row justify-content-center">
+  <div class="col-11">
+    <%= paginate @posts %>
+    <%= render 'posts/posts_list', obj: @posts %>    
+    <%= paginate @posts %>
+  </div>
+</div>

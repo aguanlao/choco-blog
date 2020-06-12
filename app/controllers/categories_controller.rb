@@ -3,6 +3,8 @@ class CategoriesController < ApplicationController
   before_action :require_admin, except: [:show, :index]
   
   def show
+    @posts = Post.joins(:categories).where(categories: { id: @category.id }).
+      order(created_at: :desc).page(params[:page]).per(3)
   end
   
   def index
