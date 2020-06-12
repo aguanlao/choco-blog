@@ -1,7 +1,17 @@
+<%# TODO: Rework post show layout  %>
 <div class="row">
   <div class="col">
-    <h1 class="mt-4"><%= @post.title %></h1>
-    
+    <h1 class="text-center mt-4"><%= @post.title %></h1>
+    <%# TODO: Fix time posted for timezone %>
+    <div class="text-muted text-center">
+      <%= link_to @post.user.username, user_path(@post.user), class: "link border-right border-secondary p-1" %>
+      <% if @post.created_at == @post.updated_at %>
+        <%= @post.created_at.strftime("%m/%d/%Y at %I:%M %p") %>
+      <% else %>
+        <%= @post.created_at.strftime("%m/%d/%Y at %I:%M %p, ") %>
+        <%= @post.updated_at.strftime("edited %m/%d/%Y") %>
+      <% end %>
+    </div>    
     <div class="card shadow p-0 mt-4">
       <%# Carousel %>
       <%# TODO: Add uploaded images to carousel %>
@@ -37,20 +47,18 @@
       <div class="card-body">
         <div class="card-text"> <%= simple_format(@post.description) %> </div>
       </div>
-      <div class="card-body text-right">
-        <% if logged_in? && (@post.user == current_user || current_user.is_admin?) %>
-          <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary" %>
-          <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
-        <% end %>
-      </div>
-      <%# TODO: Fix time posted for timezone %>
-      <div class="card-footer text-muted text-right">
-        <% if @post.created_at == @post.updated_at %>
-          <%= @post.created_at.strftime("Posted on %m/%d/%Y at %I:%M %p") %>
-        <% else %>
-          <%= @post.created_at.strftime("Posted on %m/%d/%Y at %I:%M %p, ") %>
-          <%= @post.updated_at.strftime("Updated on %m/%d/%Y") %>
-        <% end %>
+      <div class="card-body row px-0 mx-0">
+        <div class="col text-left">
+          <% @post.categories.each do |category| %>
+            <%= link_to category.name, category_path(category), class: "badge badge-pill badge-secondary" %>
+          <% end %>
+        </div>      
+        <div class="col-2 text-right">
+          <% if logged_in? && (@post.user == current_user || current_user.is_admin?) %>
+            <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary" %>
+            <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

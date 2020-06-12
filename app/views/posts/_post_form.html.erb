@@ -1,3 +1,4 @@
+<%# TODO: Rework layout of form %>
 <div class="row justify-content-center">
   <div class="col-10">
     <%= render 'shared/errors', obj: @post %>
@@ -9,6 +10,7 @@
           <%= form.text_field :title, class: "form-control shadow rounded", placeholder:"New Chocolate!" %>
         </div>
       </div>  
+      <%# TODO: Use rich_text_area instead %>
       <div class="form-group row">
         <%= form.label :description, class: "col-2 col-form-label" %>
         <div class="col-10"> 
