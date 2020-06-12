@@ -4,9 +4,9 @@
   <img src=<%= "https://picsum.photos/#{size}/#{size}" %> class="card-img" alt="...">
   <div class="card-img-overlay bg-overlay rounded d-flex flex-column justify-content-end">
     <div class="row">
-      <div class="col overlay-link">
+      <div class="col d-flex flex-wrap-reverse overlay-link">
         <% post.categories.each do |category| %>
-          <%= link_to category.name, category_path(category), class: "badge badge-pill badge-light" %>
+          <%= link_to category.name, category_path(category), class: "badge badge-pill badge-light mr-1 mt-1" %> 
         <% end %>
       </div>
     </div>
