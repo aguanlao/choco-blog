@@ -18,7 +18,7 @@
   <div class="col-11">
     <h1>Recent posts</h1>
     <%= paginate @posts %>
-    <%= render 'posts_list', obj: @posts %>    
+    <%= render 'shared/posts_list', obj: @posts %>    
     <%= paginate @posts %>
   </div>
 </div>

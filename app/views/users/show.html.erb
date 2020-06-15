@@ -103,7 +103,7 @@
           <h4 class="text-center"><%= @user.username %> hasn't posted anything yet.</h4>
         <% else %>
           <%= paginate @user_posts %>
-          <%= render 'posts/posts_list', obj: @user_posts %>
+          <%= render 'shared/posts_list', obj: @user_posts %>
           <%= paginate @user_posts %>
         <% end %>
       </div>

@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+<% end %>
+
 <%# TODO: Rework post show layout  %>
 <div class="row">
   <div class="col">
@@ -54,10 +58,7 @@
           <% end %>
         </div>      
         <div class="col-2 text-right">
-          <% if logged_in? && (@post.user == current_user || current_user.is_admin?) %>
-            <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary" %>
-            <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Confirm deleting this post?" }, class: "btn btn-secondary" %>
-          <% end %>
+          <%= render 'shared/post_actions', post: @post, has_view: false %>
         </div>
       </div>
     </div>
