@@ -25,6 +25,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   test "should not get new if not admin" do
     get new_category_url
     assert_redirected_to posts_url
+    assert_equal 'You must be an administrator to do that.', flash[:alert]    
   end
 
   test "should create category as admin" do
@@ -32,16 +33,16 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Category.count', 1) do
       post categories_url, params: { category: { name: "Vietnam" } }
     end
-
     assert_redirected_to category_url(Category.last)
+    assert_equal 'Category created successfully.', flash[:notice]
   end
 
   test "should not create category if not admin" do
     assert_no_difference('Category.count') do
       post categories_url, params: { category: { name: "Vietnam" } }
     end
-
     assert_redirected_to posts_url
+    assert_equal 'You must be an administrator to do that.', flash[:alert]
   end
 
   test "should show category" do

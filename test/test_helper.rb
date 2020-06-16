@@ -17,6 +17,7 @@ class ActiveSupport::TestCase
         password: password 
       } 
     }
+    assert_redirected_to user_url(user)
   end
 
   def create_test_user

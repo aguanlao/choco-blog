@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   def update
     # Try to update post & display proper feedback message
     if @post.update(post_params)
-      flash[:notice] = "Post was updated successfully."
+      flash[:notice] = "Post updated successfully."
       redirect_to @post
     else
       render 'edit'
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = "Post ##{@post.id} deleted."
     if params[:user]
-      redirect_back fallback_location: posts_path
+      redirect_back fallback_location: user_path(@post.user)
       return
     end
     redirect_to posts_path
