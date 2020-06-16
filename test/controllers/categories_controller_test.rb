@@ -50,15 +50,37 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should get edit" do
-  #   get edit_category_url(@category)
-  #   assert_response :success
-  # end
+  test "should get edit" do
+    sign_in_as(@admin)
+    get edit_category_url(@category)
+    assert_response :success
+    assert_select '#category_name' do
+      assert_select '[value=?]', @category.name
+    end
+  end
 
-  # test "should update category" do
-  #   patch category_url(@category), params: { category: {  } }
-  #   assert_redirected_to category_url(@category)
-  # end
+  test "should not get edit if not admin" do
+    get edit_category_url(@category)
+    assert_response :redirect
+    assert_match 'You must be an administrator to do that.', flash[:alert]
+  end
+
+  test "should update category" do
+    sign_in_as(@admin)
+    assert_changes '@category.name' do
+      @category = try_category_update(@category)
+    end    
+    assert_redirected_to category_url(@category)
+    assert_match 'Category updated successfully.', flash[:notice]
+  end
+
+  test "should not update category if not admin" do
+    assert_no_changes '@category.name' do
+      @category = try_category_update(@category)
+    end
+    assert_response :redirect
+    assert_match 'You must be an administrator to do that.', flash[:alert]
+  end
 
   # test "should destroy category" do
   #   assert_difference('Category.count', -1) do

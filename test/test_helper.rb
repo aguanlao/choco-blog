@@ -28,4 +28,10 @@ class ActiveSupport::TestCase
       is_admin: false
     )
   end
+
+  def try_category_update(category)
+    category_id = category.id
+    patch category_url(category), params: { category: { name: "Fijian" } }
+    Category.find(category_id)
+  end
 end
