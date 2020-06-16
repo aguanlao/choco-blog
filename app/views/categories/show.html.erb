@@ -8,7 +8,7 @@
     <div class="row mx-0">
       <%= paginate @posts %>
       <% if logged_in? && current_user.is_admin? %>
-        <%= link_to "Edit Category", edit_category_path, class: "btn btn-secondary align-self-start ml-auto" %>
+        <%= link_to "Edit Category", edit_category_path, class: "btn btn-secondary align-self-start ml-auto mb-2" %>
       <% end %>
     </div>
     <%= render 'shared/posts_list', obj: @posts %>    
