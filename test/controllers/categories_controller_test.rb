@@ -82,11 +82,46 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_match 'You must be an administrator to do that.', flash[:alert]
   end
 
-  # test "should destroy category" do
-  #   assert_difference('Category.count', -1) do
-  #     delete category_url(@category)
-  #   end
+  test "should destroy category" do
+    sign_in_as(@admin)
+    assert_difference('Category.count', -1) do
+      delete category_url(@category)
+    end
+    assert_redirected_to categories_url
+    assert_match "Category '#{@category.name}' deleted.", flash[:notice]
+  end
 
-  #   assert_redirected_to categories_url
-  # end
+  test "should not destroy category if not admin" do
+    assert_no_difference('Category.count') do
+      delete category_url(@category)
+    end
+    assert_response :redirect
+    assert_match 'You must be an administrator to do that.', flash[:alert]
+  end
+  
+  test "should destroy category and associations to posts" do
+    sign_in_as(@admin)
+    Post.create(
+      title: "Test title",
+      description: "Test description",
+      category_ids: [1],
+      user: @admin
+    )
+    user = create_test_user
+    Post.create(
+      title: "Another test",
+      description: "Another description",
+      category_ids: [1],
+      user: user
+    )
+    assert_difference('Category.count', -1) do
+      assert_difference('PostCategory.count', -2) do
+        delete category_url(@category)
+      end
+    end
+    assert_empty Post.first.category_ids
+    assert_empty Post.last.category_ids
+    assert_redirected_to categories_url
+    assert_match "Category '#{@category.name}' deleted.", flash[:notice]
+  end
 end

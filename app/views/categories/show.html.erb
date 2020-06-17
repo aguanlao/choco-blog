@@ -9,6 +9,7 @@
       <%= paginate @posts %>
       <% if logged_in? && current_user.is_admin? %>
         <%= link_to "Edit Category", edit_category_path, class: "btn btn-secondary align-self-start ml-auto mb-2" %>
+        <%= link_to "Delete Category", category_path, method: :delete, data: { confirm: "Confirm deleting this category?" }, class: "btn btn-danger align-self-start mb-2 ml-2" %>
       <% end %>
     </div>
     <%= render 'shared/posts_list', obj: @posts %>    
