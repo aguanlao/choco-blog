@@ -8,4 +8,15 @@ module UserHelpers
     assert_select 'div.alert-danger'
     assert_match 'Failed to create account', response.body    
   end
+
+  def try_user_update(user, password = "password")
+    patch user_url(user), params: {
+      user: {
+        username: "editedname",
+        email: user.email,
+        password: password
+      }
+    }
+    User.find(user.id)
+  end
 end

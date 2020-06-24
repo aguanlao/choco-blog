@@ -12,8 +12,12 @@
       <span aria-hidden="true">&times;</span>
     </button>
     <ul>
-      <% obj.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% obj.errors.each do |attribute, message| %>
+        <% if attribute == :password_confirmation %>
+          <li><%= message %></li>
+        <% else %>
+          <li><%= "#{attribute.to_s.titleize} #{message}" %></li>
+        <% end %>
       <% end %>
     </ul>
   </div>

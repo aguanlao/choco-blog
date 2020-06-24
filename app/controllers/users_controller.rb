@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # TODO: Add confirm password field and validate
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Signed up successfully. Welcome #{@user.username}!"
@@ -57,7 +56,10 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(
+      :username, :email, 
+      :password, :password_confirmation
+    )
   end
   
   def require_same_user
