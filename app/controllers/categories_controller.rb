@@ -3,9 +3,8 @@ class CategoriesController < ApplicationController
   before_action :require_admin, except: [:show, :index]
   
   def show
-    # TODO: Increase number of posts shown per page
     @posts = Post.joins(:categories).where(categories: { id: @category.id }).
-      order(created_at: :desc).page(params[:page]).per(3)
+      order(created_at: :desc).page(params[:page]).per(5)
   end
   
   def index

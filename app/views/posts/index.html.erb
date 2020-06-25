@@ -15,9 +15,13 @@
   <%= render 'posts_featured', obj: @featured_posts %>
 <% end %>
 <div class="row justify-content-center">
-  <div class="d-flex flex-column col-11 align-items-center">
-    <%= paginate @posts %>
+  <div class="d-flex flex-column col-11">
+    <div class="align-self-center">
+      <%= paginate @posts %>
+    </div>
     <%= render 'shared/posts_list', obj: @posts %>    
-    <%= paginate @posts %>
+    <div class="align-self-center">
+      <%= paginate @posts %>
+    </div>
   </div>
 </div>

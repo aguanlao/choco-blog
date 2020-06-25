@@ -7,13 +7,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    # TODO: Increase number of posts per page
     if Post.count > 3      
       @posts = Post.order(created_at: :desc).page(params[:page]).
-        per(3).padding(3)
+        per(5).padding(3)
       @featured_posts = Post.order(created_at: :desc).first(3)
     else      
-      @posts = Post.order(created_at: :desc).page(params[:page]).per(3)
+      @posts = Post.order(created_at: :desc).page(params[:page]).per(5)
     end
   end
 
