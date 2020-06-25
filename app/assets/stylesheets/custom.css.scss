@@ -32,7 +32,12 @@
 }
 
 html, body {
+  background-image: url(bg.png);
   background-color: #e2dacf;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
   color: #120f0f;
   height: 100%;
