@@ -8,7 +8,7 @@
         <img src=<%= "https://picsum.photos/#{size}/#{size}" %> class="rounded img-fluid" alt="...">
       </div>
       <div class="col d-flex flex-column">
-        <div class="card-body p-2 p-md-3 p-lg-4">
+        <div class="card-body card-truncate p-2 p-md-3 p-lg-4">
           <span>
             <svg class="bi bi-clock" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm8-7A8 8 0 110 8a8 8 0 0116 0z" clip-rule="evenodd"/>
@@ -20,9 +20,9 @@
             <% end %>
           </span>
           <h3 class="card-title"> <%= link_to post.title, post_path(post), class: "link" %> </h3>
-          <p class="card-text"> <%= truncate(post.description, length: 512, separator: " ") %> </p>
+          <p class="card-text overflow-hidden"> <%= truncate(post.description, length: 512, separator: " ") %> </p>
         </div>
-        <div class="row mr-0">
+        <div class="row mt-auto mr-0">
           <div class="col d-flex flex-wrap-reverse align-items-center mb-2">
             <% post.categories.each do |category| %>
               <%= link_to category.name, category_path(category), class: "d-none d-sm-block badge badge-pill badge-secondary mt-1 mr-1" %>

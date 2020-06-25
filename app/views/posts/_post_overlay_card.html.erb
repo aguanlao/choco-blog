@@ -22,7 +22,6 @@
       </span>
     </div>
     <h5 class="card-title"><%= link_to post.title, post_path(post), class: "link stretched-link"%></h5>
-    <%# TODO: Add responsive text truncation %>
-    <p class="card-text"><%= truncate(post.description, length: 256, separator: " ") %></p>
+    <p class="card-text overflow-hidden"><%= truncate(post.description, length: 256, separator: " ") %></p>
   </div>
 </div>

@@ -193,3 +193,9 @@ h1, h2, h3, h4, h5, h6, a, span {
 .btn-sm.rounded-circle {
   font-size: 0.75rem;
 }
+
+.card-truncate {
+  --max-lines: 12;
+  max-height: calc(1.5em * var(--max-lines));
+  overflow: hidden;
+}
