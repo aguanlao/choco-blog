@@ -103,12 +103,16 @@ h1, h2, h3, h4, h5, h6, a, span {
   background-color: #6b656e;
 }
 
-.link {
-  color: #b8733a;  
+.link, .overlay-link {
+  color: #b8733a;
 }
 
 .link:hover {
   color: #c5b19d;
+}
+
+.overlay-link:hover {
+  color: #fff;
 }
 
 .with-error {
@@ -128,7 +132,7 @@ h1, h2, h3, h4, h5, h6, a, span {
   min-width: 40rem;
 }
 
-.overlay-link {
+.overlay-content {
   width: fit-content;
   z-index: 5;
 }
@@ -168,6 +172,25 @@ h1, h2, h3, h4, h5, h6, a, span {
 .navbar-toggler, .navbar-toggler:focus {
   font-size: 1.73em;
   outline: transparent;
+}
+
+.page-link {
+  color: #b8733a;
+}
+
+.page-link:hover {
+  color: #fff;
+  background-color: #c5b19d;
+  border-color: #c5b19d;
+}
+
+.page-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
+}
+
+.page-item.active .page-link {
+  background-color: #b8733a;
+  border-color: #b8733a;
 }
 
 .session {
