@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6, a, span {
 }
 
 .link:hover {
-  color: #794228;
+  color: #c5b19d;
 }
 
 .with-error {
@@ -198,4 +198,15 @@ h1, h2, h3, h4, h5, h6, a, span {
   --max-lines: 12;
   max-height: calc(1.5em * var(--max-lines));
   overflow: hidden;
+}
+
+.fader:before {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 1.5em;
+  right: 0;
+  width: 100%;
+  height: 4.5em;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
 }
