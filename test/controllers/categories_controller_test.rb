@@ -84,8 +84,10 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy category" do
     sign_in_as(@admin)
-    assert_difference('Category.count', -1) do
-      delete category_url(@category)
+    assert_no_difference('Post.count') do
+      assert_difference('Category.count', -1) do
+        delete category_url(@category)
+      end
     end
     assert_redirected_to categories_url
     assert_match "Category '#{@category.name}' deleted.", flash[:notice]

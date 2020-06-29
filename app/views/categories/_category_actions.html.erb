@@ -1,0 +1,16 @@
+<% if logged_in? && current_user.is_admin? %>
+  <%# Category actions popover toggler %>
+  <a tabindex="0" class="btn btn-secondary btn-sm rounded-circle" role="button" data-toggle="popover" data-trigger="focus" data-placement="right" data-source=<%= "category-#{@category.id}" %>>
+    <i class="mdi mdi-dots-horizontal text-white"></i>
+  </a>
+
+  <%# Category popover content %>
+  <%= content_tag :div, class: "d-none popover-content text-center", id: "category-#{@category.id}" do %>
+    <%= link_to edit_category_path(@category), class: "btn btn-secondary btn-sm rounded-circle mb-1" do %>
+      <%= content_tag :i, "", class: "mdi mdi-pencil" %>
+    <% end %>
+    <%= link_to category_path(@category), method: :delete, data: { confirm: "Confirm deleting this category?" }, class: "btn btn-danger btn-sm rounded-circle" do %>
+      <%= content_tag :i, "", class: "mdi mdi-trash-can" %>
+    <% end %>
+  <% end %>  
+<% end %>
