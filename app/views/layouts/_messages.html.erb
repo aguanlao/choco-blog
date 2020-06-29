@@ -1,10 +1,10 @@
 <%# Flash notice & alert messages %>
 <% unless flash.empty? %>
-  <div class="row justify-content-center mt-2">
+  <div class="row justify-content-center">
     <div class="col-10">
       <% flash.each do |type, message| %>
         <% if ["alert", "notice"].include?(type) %>
-          <div class="alert alert-<%= type == "alert" ? "warning" : "success" %> alert-dismissable fade show mb-0">
+          <div class="alert alert-<%= type == "alert" ? "warning" : "success" %> alert-dismissable fade show my-2">
             <%= message %>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>

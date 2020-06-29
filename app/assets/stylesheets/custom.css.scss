@@ -97,6 +97,11 @@ h1, h2, h3, h4, h5, h6, a, span {
   color: #6b656e;
 }
 
+.navbar-nav .nav-item {
+  margin: 0px 50px;
+  font-family: 'Sanchez', serif;
+}
+
 .dropdown-item:hover {
   color: #fff;
   text-decoration: none;
@@ -119,17 +124,17 @@ h1, h2, h3, h4, h5, h6, a, span {
   border-color: red;
 }
 
-.card-shadow {
-  box-shadow: 0.5em 0.5em #c5b19d;
-}
-
-.navbar-nav .nav-item {
-  margin: 0px 50px;
-  font-family: 'Sanchez', serif;
-}
-
 .min-w {
   min-width: 40rem;
+}
+
+.card.card-featured {
+  background-color: transparent;
+  border: initial;
+}
+
+.card-shadow {
+  box-shadow: 0.5em 0.5em #c5b19d;
 }
 
 .overlay-content {
