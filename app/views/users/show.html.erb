@@ -19,6 +19,7 @@
         <% end %>
       </div>
     </div>
+    <%# TODO: Replace with user information %>
     <div class="border-bottom border-dark py-4">
       <p class="clearfix">
         <span class="float-left">
@@ -62,15 +63,12 @@
       </p>            
     </div>
     <div class="py-4">
-      <p>Tags</p>
-      <%# TODO: Get user tags/badges %>
-      <div>
-        <label class="badge badge-outline-dark">Madagascar</label>
-        <label class="badge badge-outline-dark">Ecuador</label>
-        <label class="badge badge-outline-dark">Vietnam</label>
-        <label class="badge badge-outline-dark">Fiji</label>
-        <label class="badge badge-outline-dark">Colombia</label>  
-      </div>
+      <% unless @user_tags.empty? %>
+        <p>Tags</p>
+        <% @user_tags.each do |tag| %>
+          <label class="badge badge-outline-dark"><%= tag %></label>
+        <% end %>
+      <% end %>
     </div>
     <% if logged_in? && current_user.is_admin? %>
       <%= link_to 'Delete User', user_path, method: :delete, data: { confirm: "Confirm deleting this user and all their posts?" }, class: "btn btn-danger btn-lg btn-block" %>

@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   def show
     @user_posts = @user.posts.reverse_order.page(params[:page]).
       per(5)
+    # TODO: Possibly refactor into one query
+    category_ids = Post.where(user: @user).joins(:post_categories).distinct.
+      pluck(:"post_categories.category_id")
+    @user_tags = Category.where(id: category_ids).pluck(:name)
   end
 
   def new
