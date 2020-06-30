@@ -5,27 +5,28 @@
     <%# Form %>
     <%= form_with(model: @post, local: true) do |form|  %>
       <div class="form-group row mt-4">      
-        <%= form.label :title, class: "col-2 col-form-label" %>
-        <div class="col-10">
-          <%= form.text_field :title, class: "form-control shadow rounded", placeholder:"New Chocolate!" %>
+        <%= form.label :title, class: "col col-form-label py-0" %>
+        <div class="col-lg-10 col-12">
+          <%= form.text_field :title, class: "form-control shadow rounded #{"with-error" unless @post.errors[:title].blank? }", placeholder: "New Chocolate!" %>
         </div>
       </div>  
       <%# TODO: Use rich_text_area instead %>
       <div class="form-group row">
-        <%= form.label :description, class: "col-2 col-form-label" %>
-        <div class="col-10"> 
-          <%= form.text_area :description, rows: 12, class: "form-control shadow rounded", placeholder: "Description, Flavor Profile, Rating" %>
+        <%= form.label :description, class: "col col-form-label py-0" %>
+        <div class="col-lg-10 col-12"> 
+          <%= form.text_area :description, rows: 12, class: "form-control shadow rounded #{"with-error" unless @post.errors[:description].blank? }", placeholder: "Description, Flavor Profile, Rating" %>
         </div>
-      </div>      
+      </div>
+      <%# TODO: Change to selection dropdown or organize checkboxes %>
       <div class="form-group row">
-        <%= form.label :category, class: "col-2 col-form-label" %>
-        <div class="col-10">
+        <%= form.label :category, class: "col col-form-label py-0" %>
+        <div class="col-lg-10 col-12">
           <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>   
         </div>
       </div>
 
       <div class="form-group d-flex justify-content-end">
-        <%= form.submit class: "btn btn-outline-dark btn-lg" %>
+        <%= form.submit class: "btn btn-dark btn-lg" %>
         <% if @post.new_record? %>
           <%= link_to 'Back to index', posts_path, class: "btn btn-outline-dark btn-lg ml-3" %>
         <% else %>
