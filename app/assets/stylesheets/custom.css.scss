@@ -31,8 +31,8 @@
   }
 }
 
-html, body {
-  background-image: url(bg.png);
+body {
+  background-image: url(bg_lg.png);
   background-color: #e2dacf;
   background-position: center;
   background-size: cover;
@@ -237,4 +237,10 @@ h1, h2, h3, h4, h5, h6, a, span, input.btn {
   width: 100%;
   height: 4.5em;
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
+}
+
+@media only screen and (max-width: 992px) {
+  body {    
+    background-image: url(bg_md.png);
+  }
 }
