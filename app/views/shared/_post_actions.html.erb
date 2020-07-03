@@ -1,12 +1,13 @@
 <%# Post actions popover toggler %>
 <a tabindex="0" class="btn btn-secondary btn-sm rounded-circle align-self-end" role="button" data-toggle="popover" data-trigger="focus" data-placement="top" data-source=<%= "popover-#{post.id}" %>>
   <i class="mdi mdi-dots-horizontal text-white"></i>
+  <div data-toggle="copy-tooltip" id=<%= "copy-#{post.id}" %>></div>
 </a>
 
 <%# Post popover content %>
-<%# TODO: Add social media sharing %>
+<%# TODO: Add more integrated social media sharing %>
 <%= content_tag :div, class: "d-none popover-content text-center", id: "popover-#{post.id}" do %>
-  <%= link_to '#', class: "btn btn-secondary btn-sm rounded-circle mb-1" do %>
+  <%= button_tag '', class: "btn btn-secondary btn-sm rounded-circle mb-1", data: { copy_text: post_url(post), target: "copy-#{post.id}" } do %>
     <%= content_tag :i, "", class: "mdi mdi-share" %>
   <% end %>
   <% if has_view %>
