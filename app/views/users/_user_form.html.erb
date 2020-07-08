@@ -6,25 +6,25 @@
       <div class="form-group row mt-4">
         <%= form.label :email, class: "col col-form-label py-0" %>
         <div class="col-lg-9 col-12">
-          <%= form.email_field :email, class: "form-control shadow rounded #{ "with-error" unless @user.errors[:email].blank? }" %>
+          <%= form.email_field :email, class: "form-control shadow rounded #{"with-error" unless @user.errors[:email].blank?}" %>
         </div>
       </div>
       <div class="form-group row">
         <%= form.label :username, class: "col col-form-label py-0" %>
         <div class="col-lg-9 col-12">
-          <%= form.text_field :username, class: "form-control shadow rounded #{"with-error" unless @user.errors[:username].blank? }" %>
+          <%= form.text_field :username, class: "form-control shadow rounded #{"with-error" unless @user.errors[:username].blank?}" %>
         </div>
       </div>  
       <div class="form-group row">
         <%= form.label :password, class: "col col-form-label py-0" %>
         <div class="col-lg-9 col-12">
-          <%= form.password_field :password, class: "form-control shadow rounded #{"with-error" unless @user.errors[:password].blank? }" %>
+          <%= form.password_field :password, class: "form-control shadow rounded #{"with-error" unless @user.errors[:password].blank?}" %>
         </div>
       </div>
       <div class="form-group row">
         <%= form.label "Confirm password", class: "col col-form-label py-0" %>
         <div class="col-lg-9 col-12 align-self-center"> 
-          <%= form.password_field :password_confirmation, class: "form-control shadow rounded #{"with-error" unless @user.errors[:password_confirmation].blank? }" %>  
+          <%= form.password_field :password_confirmation, class: "form-control shadow rounded #{"with-error" unless @user.errors[:password_confirmation].blank?}" %>  
         </div>
       </div>
       

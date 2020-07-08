@@ -7,14 +7,14 @@
       <div class="form-group row mt-4">      
         <%= form.label :title, class: "col col-form-label py-0" %>
         <div class="col-lg-10 col-12">
-          <%= form.text_field :title, class: "form-control shadow rounded #{"with-error" unless @post.errors[:title].blank? }", placeholder: "New Chocolate!" %>
+          <%= form.text_field :title, class: "form-control shadow rounded #{"with-error" unless @post.errors[:title].blank?}", placeholder: "New Chocolate!" %>
         </div>
       </div>  
       <%# TODO: Use rich_text_area instead %>
       <div class="form-group row">
         <%= form.label :description, class: "col col-form-label py-0" %>
         <div class="col-lg-10 col-12"> 
-          <%= form.text_area :description, rows: 12, class: "form-control shadow rounded #{"with-error" unless @post.errors[:description].blank? }", placeholder: "Description, Flavor Profile, Rating" %>
+          <%= form.text_area :description, rows: 12, class: "form-control shadow rounded #{"with-error" unless @post.errors[:description].blank?}", placeholder: "Description, Flavor Profile, Rating" %>
         </div>
       </div>
       <%# TODO: Change to selection dropdown or organize checkboxes %>
