@@ -34,6 +34,18 @@ $(document).on('turbolinks:load', function() {
     trigger: "manual",
     offset: -100
   });
+
+  var categoryIds = $('#categories').data("ids");
+  var categorySelect = $('select.select-2');
+  // Remove leftover select2 components left by turbolinks
+  if (categorySelect.hasClass("select2-hidden-accessible")) {
+    $('span.select2.select2-container.select2-container--bootstrap4').remove();
+    $('.select2-container--open').remove();
+  }
+  
+  categorySelect.select2({
+    theme: "bootstrap4"
+  }).val(categoryIds).trigger('change');    
 });
 
 function copyText(text) {

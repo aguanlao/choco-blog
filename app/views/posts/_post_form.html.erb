@@ -17,11 +17,12 @@
           <%= form.text_area :description, rows: 12, class: "form-control shadow rounded #{"with-error" unless @post.errors[:description].blank?}", placeholder: "Description, Flavor Profile, Rating" %>
         </div>
       </div>
-      <%# TODO: Change to selection dropdown or organize checkboxes %>
+      <%# TODO: Fix turbolinks cache sometimes displaying wrong categories %>
       <div class="form-group row">
         <%= form.label :category, class: "col col-form-label py-0" %>
         <div class="col-lg-10 col-12">
-          <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>   
+          <%= content_tag :div, '', id: "categories", data: { ids: @post.categories.ids } unless @post.new_record? %>
+          <%= form.select :category_ids, Category.all.collect { |c| [c.name, c.id] }, {}, { class: "shadow rounded select-2", multiple: "multiple", style: "width: 100%", data: { placeholder: "Select categories", allow_clear: "1" } } %>
         </div>
       </div>
 

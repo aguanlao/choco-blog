@@ -1,0 +1,25 @@
+@import 'select2/dist/css/select2';
+@import '@ttskch/select2-bootstrap4-theme/dist/select2-bootstrap4';
+
+.select2-container--bootstrap4 .select2-results__option--highlighted,
+.select2-container--bootstrap4 .select2-results__option--highlighted.select2-results__option[aria-selected=true] {
+  background-color: #6b656e;
+  color: #fff; 
+}
+
+.select2-container--bootstrap4 .select2-selection__clear {
+  line-height: 1em;
+  font-family: sans-serif;
+}
+
+.select2-container--bootstrap4 .select2-selection--multiple 
+.select2-selection__choice__remove {
+  color: #fff;
+  font-family: sans-serif;
+}
+
+.select2-container--bootstrap4 .select2-selection--multiple 
+.select2-selection__choice {
+  background-color: #6b656e;
+  color: #fff;
+}

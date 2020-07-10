@@ -5,6 +5,7 @@
 </a>
 
 <%# Post popover content %>
+<%# TODO: Add title attributes or tooltips to actions %>
 <%# TODO: Add more integrated social media sharing %>
 <%= content_tag :div, class: "d-none popover-content text-center", id: "popover-#{post.id}" do %>
   <%= button_tag '', class: "btn btn-secondary btn-sm rounded-circle mb-1", data: { copy_text: post_url(post), target: "copy-#{post.id}" } do %>
