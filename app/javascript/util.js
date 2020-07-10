@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
   var popoverWhitelist = $.fn.tooltip.Constructor.Default.whiteList;
 
   // Must whitelist attributes for popovers' elements
-  popoverWhitelist.button = ["data-copy-text", "data-target"];
+  popoverWhitelist.button = ["data-copy-text", "data-target", "title"];
   popoverWhitelist.a.push(...["rel", "data-confirm", "data-method"]);
 
   $('[data-toggle="popover"]').each(function() {
@@ -38,7 +38,6 @@ $(document).on('turbolinks:load', function() {
   if ($('body').hasClass("posts")) {
     var categoryIds = $('#categories').data("ids");
     var categorySelect = $('select.select-2');
-    console.log(categoryIds);
     // Remove leftover select2 components left by turbolinks
     if (categorySelect.hasClass("select2-hidden-accessible")) {
       $('span.select2-container.select2-container--bootstrap4').remove();
