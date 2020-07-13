@@ -1,4 +1,7 @@
-<%# TODO: Add show password button %>
+<% content_for :head do %>
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+<% end %>
+
 <div class="row justify-content-center">
   <div class="col-8">
     <%= render 'shared/errors', obj: @user %>
@@ -18,8 +21,13 @@
       </div>  
       <div class="form-group row">
         <%= form.label :password, class: "col col-form-label py-0" %>
-        <div class="col-lg-9 col-12">
+        <div class="input-group col-lg-9 col-12">
           <%= form.password_field :password, class: "form-control shadow rounded #{"with-error" unless @user.errors[:password].blank?}" %>
+          <div class="input-group-append">
+            <button type="button" class="btn btn-dark" id="input-password">
+              <%= content_tag :i, "", class:"mdi mdi-eye-outline", id: "show-password-icon", title: "Show password" %>
+            </button>
+          </div>
         </div>
       </div>
       <div class="form-group row">

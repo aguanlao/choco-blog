@@ -34,6 +34,24 @@ $(document).on('turbolinks:load', function() {
     trigger: "manual",
     offset: -100
   });
+  
+  $('#input-password').click(() => {
+    var icon = $('#show-password-icon');
+    showPassword($('#user_password'));
+    showPassword($('#user_password_confirmation'));
+    if ($(icon).hasClass("mdi-eye-outline")) {
+      $(icon).attr({
+        class: "mdi mdi-eye-off-outline",
+        title: "Hide password"
+     });
+    }
+    else {
+      $(icon).attr({
+        class: "mdi mdi-eye-outline", 
+        title: "Show password"
+      });
+    }
+  });
 
   if ($('body').hasClass("posts")) {
     var categoryIds = $('#categories').data("ids");
@@ -78,4 +96,13 @@ function copyText(text) {
 
   document.body.removeChild(textArea);
   return successful;
+}
+
+function showPassword(element) {
+  if (element.attr("type") === "password") {
+    element.attr("type", "text");
+  }
+  else {
+    element.attr("type", "password");
+  }
 }

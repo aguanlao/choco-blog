@@ -7,11 +7,12 @@
   <div class="col-lg-4">
     <div class="border-bottom border-dark text-center pb-4">
       <%# TODO: Replace placeholder image with avatar img %>
-      <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="profile" class="img-lg rounded-circle mb-3">
+      <img src="https://i.pravatar.cc/250?u=<%= @user.username %>" alt="profile" class="img-lg rounded-circle mb-3">
       <div class="mb-3">
         <h3><%= @user.username %></h3>
       </div>
-      <p class="w-75 mx-auto mb-3">Bureau Oberhaeuser is a design bureau focused on Information- and Interface Design. </p>
+      <%# TODO: Add user description %>
+      <p class="w-75 mx-auto mb-3">Blog User</p>
       <div class="d-flex justify-content-center">
         <button class="btn btn-outline-dark btn-lg mr-1">Message</button>
         <% if logged_in? && (@user == current_user || current_user.is_admin?) %>
@@ -45,6 +46,7 @@
           test@email.com
         </span>
       </p>
+      <%#
       <p class="clearfix">
         <span class="float-left">
           Facebook
@@ -60,7 +62,8 @@
         <span class="float-right text-muted">
           <a href="#" class="link">@davidgrey</a>
         </span>
-      </p>            
+      </p>
+      %>            
     </div>
     <div class="py-4">
       <% unless @user_tags.empty? %>
