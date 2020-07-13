@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  background-image: url(bg_lg.png);
+  background-image: asset-url("bg_lg.png");
   background-color: #e2dacf;
   background-position: center;
   background-size: cover;
@@ -246,6 +246,6 @@ h1, h2, h3, h4, h5, h6, a, span, input.btn {
 
 @media only screen and (max-width: 992px) {
   body {    
-    background-image: url(bg_md.png);
+    background-image: asset-url("bg_md.png");
   }
 }
